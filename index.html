@@ -20,25 +20,30 @@
   </style>
 </head>
 <body>
-  <h1>Sales Goal Tracker</h1>
-  <p>Quarterly Goal: $250,000</p>
+  <h1>Cheyenne's Sales Goal Tracker</h1>
+  <p>Monthly Goal: $228,420</p>
+  <p>Quarterly Goal: $671,922</p>
 
   <input type="number" id="salesInput" placeholder="Enter sales amount" />
   <button onclick="addSales()">Add</button>
 
   <h2>Total Sales: $<span id="total">0</span></h2>
-  <h2>Progress: <span id="percent">0</span>%</h2>
+  <h2>Monthly Progress: <span id="percent">0</span>%</h2>
+  <h2>Quarterly Progress: <span id="qpercent">0</span>%</h2>
 
   <script>
     let total = 0;
-    const goal = 250000;
+    const goal = 228420;
+    const qgoal = 671922;
 
     function addSales() {
       const input = document.getElementById('salesInput').value;
       total += parseFloat(input || 0);
       document.getElementById('total').innerText = total.toLocaleString();
       const percent = ((total / goal) * 100).toFixed(2);
+      const qpercent = ((total / qgoal) * 100).toFixed(2);
       document.getElementById('percent').innerText = percent;
+      document.getElementById('qpercent').innerText = qpercent;
       document.getElementById('salesInput').value = '';
     }
   </script>
