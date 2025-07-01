@@ -1,1 +1,46 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sales Goal Tracker</title>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #111;
+      color: #0f0;
+      font-size: 2em;
+      margin-top: 50px;
+    }
+    input, button {
+      font-size: 1em;
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sales Goal Tracker</h1>
+  <p>Quarterly Goal: $250,000</p>
+
+  <input type="number" id="salesInput" placeholder="Enter sales amount" />
+  <button onclick="addSales()">Add</button>
+
+  <h2>Total Sales: $<span id="total">0</span></h2>
+  <h2>Progress: <span id="percent">0</span>%</h2>
+
+  <script>
+    let total = 0;
+    const goal = 250000;
+
+    function addSales() {
+      const input = document.getElementById('salesInput').value;
+      total += parseFloat(input || 0);
+      document.getElementById('total').innerText = total.toLocaleString();
+      const percent = ((total / goal) * 100).toFixed(2);
+      document.getElementById('percent').innerText = percent;
+      document.getElementById('salesInput').value = '';
+    }
+  </script>
+</body>
+</html>
